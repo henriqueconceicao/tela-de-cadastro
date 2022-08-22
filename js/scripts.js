@@ -1,11 +1,18 @@
 class Validator{
     constructor(){
         this.validations = [
-            'data-min-length',
+            'data-min-length', 'data-max-length',
         ]
     }
 // iniciar a validação de todos os campos
 validate(form){
+
+    // Resgata todas as validações
+    let currentVallidations = document.querySelectorAll('form .error')
+    if(currentVallidations.length > 0){
+        this.cleanValidations(currentVallidations)
+    }
+
     // pegar todos os input
     let inputs = form.getElementsByTagName('input')
     //HTMLCollaction -> array
@@ -48,9 +55,10 @@ printMassage(input,msg){
     template.classList.remove('template')
 
     inputParent.appendChild(template)
-    
 
-
+}
+cleanValidations(validations){
+    validations.forEach(el => el.remove())
 }
 
 }
