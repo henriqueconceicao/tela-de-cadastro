@@ -30,8 +30,6 @@ validate(form){
 
             // invocar o metodo
             this[method](input,value);
-
-
         }
     }
     }, this)
